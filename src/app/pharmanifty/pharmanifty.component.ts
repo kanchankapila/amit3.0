@@ -5,7 +5,6 @@ import * as  stocks from '../lists/stocklist'
 import { HttpClient } from '@angular/common/http';
 
 // import { Browser } from '@syncfusion/ej2-base';
-import { RadioButton } from 'primeng/radiobutton';
 import { ChartType, ChartOptions } from 'chart.js';
 
 // RxJS imports for timers

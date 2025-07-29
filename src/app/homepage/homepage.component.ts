@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { ViewChild } from '@angular/core';
-import { interval, Subscription, forkJoin } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { interval, Subscription } from 'rxjs';
 import { DataapiService } from '../../dataapi.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -99,6 +98,20 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   public dealsdata: any[] = [];
 
+  // Chart configuration placeholders required by the template
+  public chartOptions1: any;
+  public chartOptions5: any;
+  public chartOptions6: any;
+
+  // Advance/decline chart config placeholders
+  public advdecChartData: any;
+  public advdecChartOptions: any;
+  public advdecChartType: any;
+
+  // Table data used by the PrimeNG tables
+  public tableDataGainers: any[] = [];
+  public tableDataLosers: any[] = [];
+
   // Selected values for screeners
   public selectedValue!: string;
   public selectedValueGainers!: string;
@@ -171,7 +184,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   getetindices(): void {
-    this.dataApi.getetindicesdata().subscribe((data) => {
+    this.dataApi.getEtIndicesData().subscribe((data) => {
       const nestedItems = Object.keys(data).map((key) => data[key]);
       this.indicesadvperc = [];
       this.indicesdecperc = [];
@@ -186,7 +199,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
 
   getetsectors(): void {
-    this.dataApi.getetallsectorsdata().subscribe((data) => {
+    this.dataApi.getEtAllSectorsData().subscribe((data) => {
       const nestedItems = Object.keys(data).map((key) => data[key]);
       this.sectorsadvperc = [];
       this.sectorsdecperc = [];
@@ -289,6 +302,61 @@ export class HomepageComponent implements OnInit, OnDestroy {
       console.error(err);
     }
   }
+
+  // ---------------------------------------------------------------------------
+  // Placeholder implementations for methods referenced in the template. These
+  // are minimal no-op versions which allow the application to compile. The
+  // original application logic should be restored here as needed.
+
+  getglobal(): void {
+    this.dataApi.getNtGlobal().subscribe((data) => (this.globalmarket = data as any));
+  }
+
+  getadvdec(): void {
+    // Placeholder for advance/decline data retrieval
+  }
+
+  opstrafiidii(): void {
+    // Placeholder for Opstra API call
+  }
+
+  getsectors(): void {
+    // Placeholder for sector data retrieval
+  }
+
+  getmcinsightview(): void {
+    // Placeholder for MC insight view retrieval
+  }
+
+  gettoken(): void {
+    this.dataApi.getToken().subscribe();
+  }
+
+  // TrackBy functions used in *ngFor loops
+  trackByFunctionglobalmarket(index: number): number {
+    return index;
+  }
+
+  trackByFunctionscreener(index: number): number {
+    return index;
+  }
+
+  trackByFunctionpdstocks(index: number): number {
+    return index;
+  }
+
+  trackByFunctionssstocks(index: number): number {
+    return index;
+  }
+
+  // Click handlers for radio buttons (no-op)
+  onClick1(event: any): void {}
+  onClick2(event: any): void {}
+  onClick3(event: any): void {}
+  onClick4(event: any): void {}
+  onClick5(event: any): void {}
+  onClick6(event: any): void {}
+  onClick(event: any): void {}
 
   // Other existing methods (getetscreenershourlyGainers, getetscreenershourlyLosers,
   // getetpredefinedscreeners, getetstockscorescreeners, getmcinsightview,
