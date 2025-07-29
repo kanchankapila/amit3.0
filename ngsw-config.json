@@ -42,6 +42,18 @@
         "maxAge": "7d",
         "strategy": "freshness"
       }
+    },
+    {
+      "name": "api-cache",
+      "urls": [
+        "/.netlify/functions/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 100,
+        "maxAge": "1h",
+        "timeout": "10s"
+      }
     }
   ]
 }
