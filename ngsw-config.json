@@ -43,5 +43,17 @@
         "strategy": "freshness"
       }
     }
+    ,{
+      "name": "api-calls",
+      "urls": [
+        "/.netlify/functions/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 20,
+        "maxAge": "1h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    }
   ]
 }
