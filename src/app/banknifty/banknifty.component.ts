@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit, } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DataapiService } from '../../dataapi.service';
 import { RadioButton } from 'primeng/radiobutton';
 import { PrimeNGConfig } from 'primeng/api';
@@ -87,7 +87,8 @@ export interface bniftysmatile {
 @Component({
   selector: 'app-banknifty',
   templateUrl: './banknifty.component.html',
-  styleUrls: ['./banknifty.component.scss']
+  styleUrls: ['./banknifty.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BankniftyComponent implements OnInit {
   @ViewChild('TradingViewWidget', { static: true }) TradingViewWidget: ElementRef;
