@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { SharedModule } from './shared/shared.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CacheInterceptor } from './cache.interceptor';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { SharedModule } from './shared/shared.module';
     }),
   ],
   providers: [
-    { provide: Window, useValue: window },CustomPreloadingStrategy
+    { provide: Window, useValue: window },
+    CustomPreloadingStrategy,
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
