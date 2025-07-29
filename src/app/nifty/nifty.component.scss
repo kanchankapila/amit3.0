@@ -1,0 +1,277 @@
+.scene {
+  width: 900px;
+  display: flex;
+  perspective: 800px;
+  .card {
+    position: relative;
+    width: 125px;
+    height: 55px;
+    transition: 1s ease-in-out;
+    transform-style: preserve-3d;
+    &:hover {
+      transform: rotateY(0.5turn);
+    }
+    .card-wrapper {
+      text-align: center;
+    }
+    .card__face {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      backface-visibility: hidden;
+      transition: 1s ease-in-out;
+      &--back {
+        transform: rotateY(0.5turn);
+      }
+    }
+  }
+}
+.abc {
+  width: 400px;
+  ;
+  height: 420px;
+}
+.text-center {
+  text-align: center;
+}
+.InsideContent {
+  display: flex;
+  align-items: flex-start;
+}
+.textcenter {
+  text-align: center;
+}
+cardbear {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+}
+cardvix {
+  width: 800px;
+  height: 150px;
+}
+cardpcr {
+  width: 800px;
+  height: 150px;
+}
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+}
+//investingindiacators
+.card-containerii {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.cardii-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  margin: 10px;
+}
+
+.cardii-text {
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.cardii {
+  width: 10%;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.cardii:hover {
+  transform: scale(1.05);
+}
+
+.cardii-green {
+  background: linear-gradient(
+    135deg,
+    rgba(191, 240, 152, 0.8),
+    rgba(111, 214, 255, 0.8)
+  );
+}
+
+.cardii-red {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 236, 210, 0.8),
+    rgba(252, 182, 159, 0.6)
+  );
+}
+
+.cardii-yellow {
+  background: linear-gradient(
+    135deg,
+    rgba(169, 241, 223, 0.8),
+    rgba(255, 187, 187, 0.6)
+  );
+}
+
+@media (max-width: 1200px) {
+  .cardii {
+    width: 30%;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardii {
+    width: 45%;
+  }
+}
+
+@media (max-width: 360px) {
+  .cardii {
+    width: 40%;
+  }
+}
+//For stocks
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.grid-wrappernt {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.containernt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.grid-containernt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cardnt {
+  perspective: 1000px;
+  flex: 1 1 120px; /* Default flex basis */
+  min-width: 120px;
+}
+
+.card-innernt {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Maintain a square aspect ratio */
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+
+
+.card-frontnt, .card-backnt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px; /* Default font size */
+  color: white;
+}
+
+.card-backnt {
+  transform: rotateY(180deg);
+}
+
+.bg-gradient-bullnt .card-frontnt, .bg-gradient-bullnt .card-backnt {
+  background: linear-gradient(45deg, green, limegreen);
+  color: white;
+}
+
+.bg-gradient-bearnt .card-frontnt, .bg-gradient-bearnt .card-backnt {
+  background: linear-gradient(45deg, red, darkred);
+  color: white;
+}
+
+.bg-gradient-warningnt .card-frontnt, .bg-gradient-warningnt .card-backnt {
+  background: linear-gradient(45deg, orange, yellow);
+  color: black;
+}
+
+.yellow .card-front, .yellow .card-back {
+  background-color: #f1c40f; /* Yellow */
+}
+
+.orange .card-front, .orange .card-back {
+  background-color: #e67e22; /* Orange */
+}
+
+/* Responsive layout */
+@media (min-width: 992px) {
+  .containernt {
+    flex-wrap: nowrap; /* Ensure all cards are in one line on larger screens */
+  }
+}
+
+@media (max-width: 991px) {
+  .grid-containernt {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
+}
+
+@media (max-width: 767px) {
+  .cardnt {
+    flex: 1 1 100px; /* Smaller flex basis on mobile */
+    min-width: 100px;
+  }
+
+  .card-frontnt, .card-backnt {
+    font-size: 12px; /* Reduced font size for mobile */
+  }
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table-container {
+  display: flex;
+  width: 100%;
+}
+
+.table-container > div {
+  width: 50%;
+}
+
+@media (max-width: 360px) {
+  .table-container {
+    flex-direction: column;
+  }
+
+  .table-container > div {
+    width: 80%;
+  }
+}
+
